@@ -138,33 +138,35 @@ if (isset($_POST["validate"]) && !empty($_POST["validate"])) {
                     for ($i = 0; $i < count($fileList); $i++) {
                         // var_dump($fileList);
                 ?>
-                        <div class="display-list">
-                            <div class="display-list-title"> <?php echo $fileList[$i]["title"]; ?></div>
-                            <div class="display-list-description">Discription : <?php echo $fileList[$i]["description"] ?></div>
-                            <div class="display-list-status">
-                                <form action="index.php" method="POST">
-                                    <label for="status">Status : </label>
-                                    <label for="termine">Termine : </label>
-                                    <input type="radio" name="status" value="termine" <?php echo $fileList[$i]["status"] == "termine" ? "checked" : null; ?>>
-                                    <label for="termine">En cours : </label>
-                                    <input type="radio" name="status" value="encours" <?php echo $fileList[$i]["status"] == "encours" ? "checked" : null; ?>>
-                                    <input type="hidden" name="selecTask" value="<?php echo $i; ?>">
-                                    <input type="submit" value="validate" name="validate" id="submit-status">
-                                </form>
-                                <div class="delete-list">
-                                    <form action="index.php" method="GET">
-                                        <input type="hidden" name="deteleTask" value="<?php echo $i; ?>">
-                                        <input type="submit" value="delete">
-                                    </form>
-                                </div>
-                            </div>
+                <div class="display-list">
+                    <div class="display-list-title"> <?php echo $fileList[$i]["title"]; ?></div>
+                    <div class="display-list-description">Discription : <?php echo $fileList[$i]["description"] ?></div>
+                    <div class="display-list-status">
+                        <form action="index.php" method="POST">
+                            <label for="status">Status : </label>
+                            <label for="termine">Termine : </label>
+                            <input type="radio" name="status" value="termine"
+                                <?php echo $fileList[$i]["status"] == "termine" ? "checked" : null; ?>>
+                            <label for="termine">En cours : </label>
+                            <input type="radio" name="status" value="encours"
+                                <?php echo $fileList[$i]["status"] == "encours" ? "checked" : null; ?>>
+                            <input type="hidden" name="selecTask" value="<?php echo $i; ?>">
+                            <input type="submit" value="validate" name="validate" id="submit-status">
+                        </form>
+                        <div class="delete-list">
+                            <form action="index.php" method="GET">
+                                <input type="hidden" name="deteleTask" value="<?php echo $i; ?>">
+                                <input type="submit" value="delete">
+                            </form>
                         </div>
+                    </div>
+                </div>
                 <?php
 
                     }
                 } else {
                     echo '<div class="aucune-infos">
-                    aucune tâches enregistrée !
+                    aucune tâche enregistrée !
                     </div>';
                 }
                 ?>
